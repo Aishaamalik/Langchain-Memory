@@ -2,7 +2,7 @@ import streamlit as st
 import base64
 from backend import initialize_llm, create_memory, create_conversation, get_response
 
-st.set_page_config(page_title="Overlay BG", layout="wide")
+st.set_page_config(page_title="Chat bot", layout="wide")
 
 def set_bg_with_overlay(img_path, overlay_rgba="rgba(0,0,0,0.45)"):
     with open(img_path, "rb") as f:
@@ -15,6 +15,7 @@ def set_bg_with_overlay(img_path, overlay_rgba="rgba(0,0,0,0.45)"):
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
+            color: white;
         }}
         .stApp .css-1d391kg {{ /* container text background tweak (class may vary) */
             background: rgba(255,255,255,0.0);
@@ -24,7 +25,7 @@ def set_bg_with_overlay(img_path, overlay_rgba="rgba(0,0,0,0.45)"):
         unsafe_allow_html=True
     )
 
-set_bg_with_overlay("pic1.jpg", overlay_rgba="rgba(0,0,0,0.35)")
+set_bg_with_overlay("pic1.jpg", overlay_rgba="rgba(0,0,0,0.5)")
 
 try:
     llm = initialize_llm()

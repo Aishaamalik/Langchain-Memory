@@ -2,4 +2,5 @@
 - [x] Add st.set_page_config(page_title="Overlay BG", layout="wide") after imports
 - [x] Define the set_bg_with_overlay function
 - [x] Call set_bg_with_overlay("pic1.jpg", overlay_rgba="rgba(0,0,0,0.35)")
+- [ ] Increase overlay opacity to 0.5 and add white text color
 - [ ] Run streamlit run app.py to verify
