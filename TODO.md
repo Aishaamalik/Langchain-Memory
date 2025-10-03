@@ -1,0 +1,5 @@
+- [x] Add import base64 to app.py
+- [x] Add st.set_page_config(page_title="Overlay BG", layout="wide") after imports
+- [x] Define the set_bg_with_overlay function
+- [x] Call set_bg_with_overlay("pic1.jpg", overlay_rgba="rgba(0,0,0,0.35)")
+- [ ] Run streamlit run app.py to verify
