@@ -55,11 +55,22 @@ def get_text():
     input_text = st.text_input("You:", key="input")
     return input_text
 
+style_option = st.selectbox(
+    "Select response style:",
+    options=["professional", "casual", "gen-z style"],
+    index=0,
+    help="Choose the tone style for the agent's response"
+)
+
 user_input = get_text()
 
 if user_input:
+    # Append style instruction to user input
+    style_instruction = f"Respond in a {style_option} tone."
+    styled_input = f"{style_instruction}\nUser: {user_input}"
+
     # Get response from conversation chain
-    response = get_response(conversation, user_input)
+    response = get_response(conversation, styled_input)
 
     # Store the conversation in session state
     st.session_state.past.append(user_input)

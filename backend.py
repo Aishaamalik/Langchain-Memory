@@ -24,4 +24,5 @@ def create_conversation(llm, memory):
     return ConversationChain(llm=llm, memory=memory)
 
 def get_response(conversation, user_input):
+    # user_input may contain style instruction prepended
     return conversation.predict(input=user_input)

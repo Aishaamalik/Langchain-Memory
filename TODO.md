@@ -1,6 +1,6 @@
-- [x] Add import base64 to app.py
-- [x] Add st.set_page_config(page_title="Overlay BG", layout="wide") after imports
-- [x] Define the set_bg_with_overlay function
-- [x] Call set_bg_with_overlay("pic1.jpg", overlay_rgba="rgba(0,0,0,0.35)")
-- [ ] Increase overlay opacity to 0.5 and add white text color
-- [ ] Run streamlit run app.py to verify
+# TODO List for Adding Style Selection Feature
+
+- [x] Add style selector UI in app.py (selectbox with options: "gen-z style", "casual", "professional", default "professional")
+- [x] Modify get_response function in backend.py to accept style parameter and incorporate it into the conversation input
+- [x] Update the call to get_response in app.py to pass the selected style
+- [ ] Test the implementation to ensure styles are applied correctly
