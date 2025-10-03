@@ -85,7 +85,7 @@ if user_input:
     st.session_state.generated.append(response)
 
 if st.session_state["generated"]:
-    for i in range(len(st.session_state["generated"])):
+    for i in range(len(st.session_state["generated"])-1, -1, -1):
         with st.chat_message("user"):
             st.write(st.session_state['past'][i])
         with st.chat_message("assistant"):
