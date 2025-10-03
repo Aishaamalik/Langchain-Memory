@@ -1,6 +1,7 @@
 import streamlit as st
 import base64
 from backend import initialize_llm, create_memory, create_conversation, get_response
+import time
 
 st.set_page_config(page_title="Chat bot", layout="wide")
 
@@ -33,7 +34,14 @@ except ValueError as e:
     st.error(str(e))
     st.stop()
 
-st.title("Memory Agent with Streamlit and LangChain")
+title_placeholder = st.empty()
+title_text = "Memory Agent with Streamlit and LangChain"
+displayed_text = ""
+
+for char in title_text:
+    displayed_text += char
+    title_placeholder.title(displayed_text)
+    time.sleep(0.05)
 
 style_option = st.sidebar.selectbox(
     "Select response style:",
