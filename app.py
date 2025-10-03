@@ -35,6 +35,13 @@ except ValueError as e:
 
 st.title("Memory Agent with Streamlit and LangChain")
 
+style_option = st.sidebar.selectbox(
+    "Select response style:",
+    options=["professional", "casual", "gen-z style"],
+    index=0,
+    help="Choose the tone style for the agent's response"
+)
+
 if "memory" not in st.session_state:
     st.session_state.memory = create_memory(llm)
 
@@ -55,13 +62,6 @@ def get_text():
     input_text = st.text_input("You:", key="input")
     return input_text
 
-style_option = st.selectbox(
-    "Select response style:",
-    options=["professional", "casual", "gen-z style"],
-    index=0,
-    help="Choose the tone style for the agent's response"
-)
-
 user_input = get_text()
 
 if user_input:
@@ -77,6 +77,8 @@ if user_input:
     st.session_state.generated.append(response)
 
 if st.session_state["generated"]:
-    for i in range(len(st.session_state["generated"]) - 1, -1, -1):
-        st.markdown(f"**You:** {st.session_state['past'][i]}")
-        st.markdown(f"**Agent:** {st.session_state['generated'][i]}")
+    for i in range(len(st.session_state["generated"])):
+        with st.chat_message("user"):
+            st.write(st.session_state['past'][i])
+        with st.chat_message("assistant"):
+            st.write(st.session_state['generated'][i])
